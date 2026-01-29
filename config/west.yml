@@ -1,0 +1,24 @@
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: splitkb
+      url-base: https://github.com/splitkb
+    # Additional modules containing boards/shields/custom code can be listed here as well
+    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    - name: zmk-halcyon-module
+      remote: splitkb
+      revision: main
+    - name: zmk-driver-charge-led
+      remote: splitkb
+      revision: main
+    - name: zmk-driver-vik-sleep
+      remote: splitkb
+      revision: main
+  self:
+    path: config
