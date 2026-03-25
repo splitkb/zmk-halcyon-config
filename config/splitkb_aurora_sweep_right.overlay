@@ -1,0 +1,5 @@
+#include "splitkb_aurora_sweep.dtsi"
+
+&halcyon_transform {
+    col-offset = <5>;
+};
