@@ -1,0 +1,5 @@
+#include "kyria_rev3.dtsi"
+
+&halcyon_transform {
+    col-offset = <7>;
+};

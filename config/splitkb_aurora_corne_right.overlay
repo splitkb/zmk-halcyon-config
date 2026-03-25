@@ -1,0 +1,9 @@
+#include "splitkb_aurora_corne.dtsi"
+
+&halcyon_transform {
+    col-offset = <6>;
+};
+
+&five_column_halcyon_transform {
+    col-offset = <6>;
+};
