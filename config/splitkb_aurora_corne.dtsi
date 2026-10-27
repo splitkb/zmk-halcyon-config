@@ -3,11 +3,11 @@
 
 / {
     chosen {
-        zmk,physical-layout = &halcyon_layout; 
-        zmk,kscan = &kscan_composite;
+        zmk,physical-layout = &halcyon_layout;
+        zmk,kscan = &kscan;
         zmk,underglow = &led_strip;
     };
-    
+
     halcyon_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <12>;
@@ -162,9 +162,9 @@ RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4)  RC(4,10) RC(4,9) RC(4,8) RC(4,7) RC(4,6
 
     kscan_composite: kscan_composite {
         compatible = "zmk,kscan-composite";
+	status = "disabled";
         columns = <12>; // Match your keyboard's column count
         rows = <5>;    // Total rows including the Halcyon row
-        wakeup-source;
 
         matrix {
             kscan = <&kscan>; // Match your keyboard's existing kscan
@@ -227,8 +227,8 @@ RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4)  RC(4,10) RC(4,9) RC(4,8) RC(4,7) RC(4,6
         spi-one-frame = <0x70>;
         spi-zero-frame = <0x40>;
 
-        color-mapping = <LED_COLOR_ID_GREEN 
-                LED_COLOR_ID_RED 
+        color-mapping = <LED_COLOR_ID_GREEN
+                LED_COLOR_ID_RED
                 LED_COLOR_ID_BLUE>;
     };
 };
