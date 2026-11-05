@@ -67,7 +67,7 @@ Supported module shields:
 | Halcyon Epaper Display Module | `mod_display_epaper_mountain`, `mod_display_epaper_forest` and `mod_display_epaper_cityscape` |
 | Halcyon MIP Display Module (TBA) | `mod_display_mip` |
 
-Additionally, the nice!view is also supported when using the Halcyon to Promicro adapter by adding the following shields `halcyon_nice_view_adapter nice_view` to your build. OLED can also be enabled by setting the marked config options in the keyboards `.conf` file.
+Additionally, the nice!view is also supported when using the Halcyon to Promicro adapter by adding the following shields `halcyon_nice_view_adapter nice_view` to your build. OLED can also be enabled by setting the marked config options in the keyboards `.conf` file or setting it in the `build.yaml`. See the examples below.
 
 ## Initial Setup & Prerequisites
 
@@ -200,6 +200,22 @@ For the display module you can choose between three images: `forest`, `mountain`
 
   ```yaml
   shield: halcyon_to_promicro <keyboard>_right <battery> halcyon_nice_view_adapter nice_view
+  ```
+
+### OLED on the Halcyon to Promicro adapter
+
+* Left half:
+
+  ```yaml
+  shield: halcyon_to_promicro <keyboard>_left <battery>
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  ```
+
+* Right half:
+
+  ```yaml
+  shield: halcyon_to_promicro <keyboard>_right <battery>
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
   ```
 
 ## 4. Studio Builds
