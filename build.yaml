@@ -1,20 +1,3 @@
-# This file generates the GitHub Actions matrix.
-# Add individual board + shield combinations to the `include` property. 
-# You can also use the `cmake-args` property to pass flags to the build command, 
-# `snippet` to add a Zephyr snippet, and `artifact-name` to assign a name to 
-# distinguish build outputs from each other:
-#
-# include:
-#   - board: halcyon_dongle//zmk
-#     shield: halcyon_kyria_dongle
-#     cmake-args: -DCONFIG_ZMK_STUDIO=y
-#     snippet: studio-rpc-usb-uart
-#   - board: halcyon_wireless//zmk
-#     shield: halcyon_kyria_left mod_battery_coincell mod_display_epaper_forest
-#     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-#   - board: halcyon_wireless//zmk
-#     shield: halcyon_kyria_right mod_battery_coincell mod_encoder_right
-#
 ---
 include:
 - board: halcyon_dongle//zmk
@@ -34,6 +17,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro kyria_rev3_right mod_battery_coincell
   artifact-name: kyria_rev3_right_cc
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_left mod_battery_coincell
+  artifact-name: kyria_rev3_left_cc_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_left mod_battery_coincell mod_cirque_central
+  artifact-name: kyria_rev3_left_cc_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_right mod_battery_coincell
+  artifact-name: kyria_rev3_right_cc_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro kyria_rev3_left mod_battery_coincell mod_display_epaper_forest
   artifact-name: kyria_rev3_left_cc_epaper
@@ -71,6 +67,18 @@ include:
   shield: halcyon_to_promicro kyria_rev3_right mod_battery_coincell mod_encoder_right
   artifact-name: kyria_rev3_right_cc_encoder
 - board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_left mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: kyria_rev3_left_cc_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_left mod_battery_coincell halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: kyria_rev3_left_cc_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_right mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: kyria_rev3_right_cc_nice_view
+- board: halcyon_wireless//zmk
   shield: halcyon_to_promicro kyria_rev3_left mod_battery_lipo
   artifact-name: kyria_rev3_left_lp
   cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
@@ -82,6 +90,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro kyria_rev3_right mod_battery_lipo
   artifact-name: kyria_rev3_right_lp
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_left mod_battery_lipo
+  artifact-name: kyria_rev3_left_lp_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_left mod_battery_lipo mod_cirque_central
+  artifact-name: kyria_rev3_left_lp_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_right mod_battery_lipo
+  artifact-name: kyria_rev3_right_lp_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro kyria_rev3_left mod_battery_lipo mod_display_epaper_forest
   artifact-name: kyria_rev3_left_lp_epaper
@@ -118,6 +139,18 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro kyria_rev3_right mod_battery_lipo mod_encoder_right
   artifact-name: kyria_rev3_right_lp_encoder
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_left mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: kyria_rev3_left_lp_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_left mod_battery_lipo halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: kyria_rev3_left_lp_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro kyria_rev3_right mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: kyria_rev3_right_lp_nice_view
 - board: halcyon_dongle//zmk
   shield: splitkb_aurora_corne_dongle mod_cirque_central
   artifact-name: aurora_corne_dongle
@@ -135,6 +168,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_corne_right mod_battery_coincell
   artifact-name: aurora_corne_right_cc
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_coincell
+  artifact-name: aurora_corne_left_cc_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_coincell mod_cirque_central
+  artifact-name: aurora_corne_left_cc_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_right mod_battery_coincell
+  artifact-name: aurora_corne_right_cc_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_coincell mod_display_epaper_forest
   artifact-name: aurora_corne_left_cc_epaper
@@ -172,6 +218,18 @@ include:
   shield: halcyon_to_promicro splitkb_aurora_corne_right mod_battery_coincell mod_encoder_right
   artifact-name: aurora_corne_right_cc_encoder
 - board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_corne_left_cc_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_coincell halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: aurora_corne_left_cc_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_right mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_corne_right_cc_nice_view
+- board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_lipo
   artifact-name: aurora_corne_left_lp
   cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
@@ -183,6 +241,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_corne_right mod_battery_lipo
   artifact-name: aurora_corne_right_lp
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_lipo
+  artifact-name: aurora_corne_left_lp_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_lipo mod_cirque_central
+  artifact-name: aurora_corne_left_lp_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_right mod_battery_lipo
+  artifact-name: aurora_corne_right_lp_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_lipo mod_display_epaper_forest
   artifact-name: aurora_corne_left_lp_epaper
@@ -219,6 +290,18 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_corne_right mod_battery_lipo mod_encoder_right
   artifact-name: aurora_corne_right_lp_encoder
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_corne_left_lp_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_lipo halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: aurora_corne_left_lp_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_corne_right mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_corne_right_lp_nice_view
 - board: halcyon_dongle//zmk
   shield: splitkb_aurora_sweep_dongle mod_cirque_central
   artifact-name: aurora_sweep_dongle
@@ -236,6 +319,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sweep_right mod_battery_coincell
   artifact-name: aurora_sweep_right_cc
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_coincell
+  artifact-name: aurora_sweep_left_cc_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_coincell mod_cirque_central
+  artifact-name: aurora_sweep_left_cc_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_right mod_battery_coincell
+  artifact-name: aurora_sweep_right_cc_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_coincell mod_display_epaper_forest
   artifact-name: aurora_sweep_left_cc_epaper
@@ -273,6 +369,18 @@ include:
   shield: halcyon_to_promicro splitkb_aurora_sweep_right mod_battery_coincell mod_encoder_right
   artifact-name: aurora_sweep_right_cc_encoder
 - board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_sweep_left_cc_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_coincell halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: aurora_sweep_left_cc_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_right mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_sweep_right_cc_nice_view
+- board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_lipo
   artifact-name: aurora_sweep_left_lp
   cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
@@ -284,6 +392,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sweep_right mod_battery_lipo
   artifact-name: aurora_sweep_right_lp
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_lipo
+  artifact-name: aurora_sweep_left_lp_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_lipo mod_cirque_central
+  artifact-name: aurora_sweep_left_lp_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_right mod_battery_lipo
+  artifact-name: aurora_sweep_right_lp_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_lipo mod_display_epaper_forest
   artifact-name: aurora_sweep_left_lp_epaper
@@ -320,6 +441,18 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sweep_right mod_battery_lipo mod_encoder_right
   artifact-name: aurora_sweep_right_lp_encoder
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_sweep_left_lp_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_left mod_battery_lipo halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: aurora_sweep_left_lp_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sweep_right mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_sweep_right_lp_nice_view
 - board: halcyon_dongle//zmk
   shield: splitkb_aurora_helix_dongle mod_cirque_central
   artifact-name: aurora_helix_dongle
@@ -337,6 +470,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_helix_right mod_battery_coincell
   artifact-name: aurora_helix_right_cc
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_coincell
+  artifact-name: aurora_helix_left_cc_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_coincell mod_cirque_central
+  artifact-name: aurora_helix_left_cc_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_right mod_battery_coincell
+  artifact-name: aurora_helix_right_cc_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_coincell mod_display_epaper_forest
   artifact-name: aurora_helix_left_cc_epaper
@@ -374,6 +520,18 @@ include:
   shield: halcyon_to_promicro splitkb_aurora_helix_right mod_battery_coincell mod_encoder_right
   artifact-name: aurora_helix_right_cc_encoder
 - board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_helix_left_cc_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_coincell halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: aurora_helix_left_cc_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_right mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_helix_right_cc_nice_view
+- board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_lipo
   artifact-name: aurora_helix_left_lp
   cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
@@ -385,6 +543,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_helix_right mod_battery_lipo
   artifact-name: aurora_helix_right_lp
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_lipo
+  artifact-name: aurora_helix_left_lp_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_lipo mod_cirque_central
+  artifact-name: aurora_helix_left_lp_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_right mod_battery_lipo
+  artifact-name: aurora_helix_right_lp_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_lipo mod_display_epaper_forest
   artifact-name: aurora_helix_left_lp_epaper
@@ -421,6 +592,18 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_helix_right mod_battery_lipo mod_encoder_right
   artifact-name: aurora_helix_right_lp_encoder
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_helix_left_lp_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_left mod_battery_lipo halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: aurora_helix_left_lp_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_helix_right mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_helix_right_lp_nice_view
 - board: halcyon_dongle//zmk
   shield: splitkb_aurora_lily58_dongle mod_cirque_central
   artifact-name: aurora_lily58_dongle
@@ -438,6 +621,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_lily58_right mod_battery_coincell
   artifact-name: aurora_lily58_right_cc
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_coincell
+  artifact-name: aurora_lily58_left_cc_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_coincell mod_cirque_central
+  artifact-name: aurora_lily58_left_cc_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_right mod_battery_coincell
+  artifact-name: aurora_lily58_right_cc_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_coincell mod_display_epaper_forest
   artifact-name: aurora_lily58_left_cc_epaper
@@ -475,6 +671,18 @@ include:
   shield: halcyon_to_promicro splitkb_aurora_lily58_right mod_battery_coincell mod_encoder_right
   artifact-name: aurora_lily58_right_cc_encoder
 - board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_lily58_left_cc_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_coincell halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: aurora_lily58_left_cc_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_right mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_lily58_right_cc_nice_view
+- board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_lipo
   artifact-name: aurora_lily58_left_lp
   cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
@@ -486,6 +694,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_lily58_right mod_battery_lipo
   artifact-name: aurora_lily58_right_lp
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_lipo
+  artifact-name: aurora_lily58_left_lp_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_lipo mod_cirque_central
+  artifact-name: aurora_lily58_left_lp_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_right mod_battery_lipo
+  artifact-name: aurora_lily58_right_lp_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_lipo mod_display_epaper_forest
   artifact-name: aurora_lily58_left_lp_epaper
@@ -522,6 +743,18 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_lily58_right mod_battery_lipo mod_encoder_right
   artifact-name: aurora_lily58_right_lp_encoder
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_lily58_left_lp_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_left mod_battery_lipo halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: aurora_lily58_left_lp_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_lily58_right mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_lily58_right_lp_nice_view
 - board: halcyon_dongle//zmk
   shield: splitkb_aurora_sofle_dongle mod_cirque_central
   artifact-name: aurora_sofle_dongle
@@ -539,6 +772,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sofle_right mod_battery_coincell
   artifact-name: aurora_sofle_right_cc
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_coincell
+  artifact-name: aurora_sofle_left_cc_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_coincell mod_cirque_central
+  artifact-name: aurora_sofle_left_cc_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_right mod_battery_coincell
+  artifact-name: aurora_sofle_right_cc_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_coincell mod_display_epaper_forest
   artifact-name: aurora_sofle_left_cc_epaper
@@ -576,6 +822,18 @@ include:
   shield: halcyon_to_promicro splitkb_aurora_sofle_right mod_battery_coincell mod_encoder_right
   artifact-name: aurora_sofle_right_cc_encoder
 - board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_sofle_left_cc_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_coincell halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: aurora_sofle_left_cc_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_right mod_battery_coincell halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_sofle_right_cc_nice_view
+- board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_lipo
   artifact-name: aurora_sofle_left_lp
   cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
@@ -587,6 +845,19 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sofle_right mod_battery_lipo
   artifact-name: aurora_sofle_right_lp
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_lipo
+  artifact-name: aurora_sofle_left_lp_oled
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_lipo mod_cirque_central
+  artifact-name: aurora_sofle_left_lp_oled_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_right mod_battery_lipo
+  artifact-name: aurora_sofle_right_lp_oled
+  cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_EXT_POWER_START=y
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_lipo mod_display_epaper_forest
   artifact-name: aurora_sofle_left_lp_epaper
@@ -623,6 +894,18 @@ include:
 - board: halcyon_wireless//zmk
   shield: halcyon_to_promicro splitkb_aurora_sofle_right mod_battery_lipo mod_encoder_right
   artifact-name: aurora_sofle_right_lp_encoder
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_sofle_left_lp_nice_view
+  cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_left mod_battery_lipo halcyon_nice_view_adapter nice_view mod_cirque_central
+  artifact-name: aurora_sofle_left_lp_nice_view_central
+  cmake-args: -DCONFIG_ZMK_STUDIO=y
+  snippet: studio-rpc-usb-uart
+- board: halcyon_wireless//zmk
+  shield: halcyon_to_promicro splitkb_aurora_sofle_right mod_battery_lipo halcyon_nice_view_adapter nice_view
+  artifact-name: aurora_sofle_right_lp_nice_view
 - board: halcyon_wireless//zmk
   shield: settings_reset
 - board: halcyon_dongle//zmk
