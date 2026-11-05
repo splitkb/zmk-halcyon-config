@@ -67,6 +67,7 @@ Supported module shields:
 | Halcyon Epaper Display Module | `mod_display_epaper_mountain`, `mod_display_epaper_forest` and `mod_display_epaper_cityscape` |
 | Halcyon MIP Display Module (TBA) | `mod_display_mip` |
 
+Additionally, the nice!view is also supported when using the Halcyon to Promicro adapter by adding the following shields `halcyon_nice_view_adapter nice_view` to your build. OLED can also be enabled by setting the marked config options in the keyboards `.conf` file.
 
 ## Initial Setup & Prerequisites
 
@@ -187,6 +188,19 @@ For the display module you can choose between three images: `forest`, `mountain`
   shield: <keyboard>_right <battery> mod_display_epaper_<image>
   ```
 
+### nice!view on the Halcyon to Promicro adapter
+
+* Left half:
+
+  ```yaml
+  shield: halcyon_to_promicro <keyboard>_left <battery> halcyon_nice_view_adapter nice_view
+  ```
+
+* Right half:
+
+  ```yaml
+  shield: halcyon_to_promicro <keyboard>_right <battery> halcyon_nice_view_adapter nice_view
+  ```
 
 ## 4. Studio Builds
 
@@ -217,13 +231,13 @@ include:
     shield: halcyon_kyria_right mod_battery_coincell mod_encoder_right
 ```
 
-Aurora corne without dongle, no module and LiPo battery on the left half, and a a cirque touchpad and LiPo battery on the right half.
+Aurora corne without dongle, nice!view and LiPo battery on the left half, and a a cirque touchpad and LiPo battery on the right half.
 
 ```
 ---
 include:
   - board: halcyon_wireless//zmk
-    shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_lipo mod_cirque_central
+    shield: halcyon_to_promicro splitkb_aurora_corne_left mod_battery_lipo mod_cirque_central halcyon_nice_view_adapter nice_view
   - board: halcyon_wireless//zmk
     shield: halcyon_to_promicro splitkb_aurora_corne_right mod_battery_lipo mod_cirque_hw_right
 ```
