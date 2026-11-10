@@ -16,13 +16,11 @@
 #define RAISE  2
 #define ADJUST 3
 
-/* Uncomment this block if using RGB
 &led_strip {
-       chain-length = <6>;
-       // chain-length = <38>; // Uncomment if using both per-key and underglow LEDs
-       // chain-length = <32>; // Uncomment if using only per-key LEDs.
+    // chain-length = <6>;  // Uncomment if using only underglow LEDs
+    chain-length = <35>;
+    // chain-length = <29>; // Uncomment if using only per-key LEDs.
 };
- */
 
 /* NOTE: At the time of the creation of this keymap, there are no specified codes for 'eisuu' and 'kana' input in ZMK.
 However, 'LANG1' and 'LANG2' are fully-functioning candidates for 'kana' and 'eisuu' input respectively.

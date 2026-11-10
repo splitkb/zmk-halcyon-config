@@ -17,6 +17,12 @@
 #define FUNCTION 3
 #define ADJUST   4
 
+&led_strip {
+    // chain-length = <6>;  // Uncomment if using only underglow LEDs
+    chain-length = <31>;
+    // chain-length = <25>; // Uncomment if using only per-key LEDs.
+};
+
 / {
     keymap {
         compatible = "zmk,keymap";
